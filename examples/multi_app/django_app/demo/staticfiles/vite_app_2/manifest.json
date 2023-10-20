@@ -1,0 +1,14 @@
+{
+  "js/apps/demoBlock2.css": {
+    "file": "assets/demoBlock2-41023dcb.css",
+    "src": "js/apps/demoBlock2.css"
+  },
+  "js/apps/demoBlock2.js": {
+    "css": [
+      "assets/demoBlock2-41023dcb.css"
+    ],
+    "file": "assets/demoBlock2-7b50c1df.js",
+    "isEntry": true,
+    "src": "js/apps/demoBlock2.js"
+  }
+}

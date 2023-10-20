@@ -7,6 +7,18 @@ EXAMPLES = legacy-settings multi-app zero-config fully-loaded
 		$(call build_file_from_sample, $$dir/.env); \
 	done
 
+.PHONY: build-legacy-settings-demo
+build-legacy-settings-demo: .env
+	sh scripts/build_app.sh legacy_settings
+
 .PHONY: legacy-settings-demo
 legacy-settings-demo: .env
-	sh run_example_app.sh legacy-settings
+	sh scripts/run_app.sh legacy_settings
+
+.PHONY: build-multi-app-demo
+build-multi-app-demo: .env
+	sh scripts/build_app.sh multi_app
+
+.PHONY: multi-app-demo
+multi-app-demo: .env
+	sh scripts/run_app.sh multi_app

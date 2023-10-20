@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load django_vite %}
+
+
+{% block content %}
+    {% vite_asset 'js/apps/home.js' %}
+    {% vite_asset 'js/apps/demoBlock1.js' app="vite_app_1" %}
+    {% vite_asset 'js/apps/demoBlock2.js' app="vite_app_2" %}
+    {% vite_asset 'js/apps/demoBlock3.js' app="vite_app_3" %}
+
+    <div class="flex flex-col justify-start sm:max-w-4xl w-full mx-auto space-y-10">
+        <div class="max-w-7xl">
+            <h1 class="text-3xl font-bold leading-tight tracking-tight">
+                Multi-App
+            </h1>
+            <h2 class="text-xl mt-3">
+                django-vite example app
+            </h2>
+        </div>
+    
+        <div id="home-vue-app">
+            <demo-block></demo-block>
+        </div>
+        <div id="vue-app-1">
+            <demo-block-1></demo-block-1>
+        </div>
+        <div id="vue-app-2">
+            <demo-block-2></demo-block-2>
+        </div>
+        <div id="vue-app-3">
+            <demo-block-3></demo-block-3>
+        </div>
+    </div>
+{% endblock content %}

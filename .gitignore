@@ -9,7 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 develop-eggs/
-dist/
+# dist/
 downloads/
 eggs/
 .eggs/
@@ -162,7 +162,7 @@ cython_debug/
 .vscode
 
 # compiled output
-/dist
+# /dist
 /tmp
 /out-tsc
 

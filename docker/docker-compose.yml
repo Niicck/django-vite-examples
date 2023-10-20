@@ -7,30 +7,30 @@ services:
       dockerfile: docker/images/django/django.Dockerfile
       args:
         APP_HOME: "${APP_HOME}"
-        EXAMPLE_APP_PATH: "${EXAMPLE_APP_PATH}"
+        PROJECT_ROOT_PATH: "${PROJECT_ROOT_PATH}"
     ports:
       - '${PORT}:${PORT}'
     links:
-      - vite:vite
+      - vite_default:vite_default
     volumes:
-      - '../${EXAMPLE_APP_PATH}/demo:${APP_HOME}/demo'
+      - '../${PROJECT_ROOT_PATH}/demo:${APP_HOME}/demo'
     env_file:
-      - "../${EXAMPLE_APP_PATH}/.env"
+      - "../${PROJECT_ROOT_PATH}/.env"
 
-  vite:
+  vite_default:
     build:
       context: ..
       dockerfile: docker/images/vite/vite.Dockerfile
       args:
         APP_HOME: "${APP_HOME}"
-        EXAMPLE_APP_PATH: "${EXAMPLE_APP_PATH}"
+        PROJECT_ROOT_PATH: "${PROJECT_ROOT_PATH}"
+        VITE_APP_PATH: "${PROJECT_ROOT_PATH}"
     tty: true
     ports:
       - '${DJANGO_VITE_DEV_SERVER_PORT}:${DJANGO_VITE_DEV_SERVER_PORT}'
     volumes:
-      - '../${EXAMPLE_APP_PATH}/vite.config.js:${APP_HOME}/vite.config.js'
-      - '../${EXAMPLE_APP_PATH}/tailwind.config.js:${APP_HOME}/tailwind.config.js'
-      - '../${EXAMPLE_APP_PATH}/tsconfig.json:${APP_HOME}/tsconfig.json'
-      - '../${EXAMPLE_APP_PATH}/demo:${APP_HOME}/demo'
+      - '../${PROJECT_ROOT_PATH}/vite.config.js:${APP_HOME}/vite.config.js'
+      - '../${PROJECT_ROOT_PATH}/tailwind.config.js:${APP_HOME}/tailwind.config.js'
+      - '../${PROJECT_ROOT_PATH}/demo:${APP_HOME}/demo'
     env_file:
-      - "../${EXAMPLE_APP_PATH}/.env"
+      - "../${PROJECT_ROOT_PATH}/.env"

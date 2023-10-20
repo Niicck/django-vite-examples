@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ../../docker/django.Dockerfile
+      args:
+        DJANGO_APP_PATH: "./django_app"
+    ports:
+      - '${PORT}:${PORT}'
+    links:
+      - vite_default:vite_default
+    volumes:
+      - './demo:app/demo'
+    env_file:
+      - "./.env"
+
+  vite_default:
+    build:
+      context: .
+      dockerfile: ../../docker/vite.Dockerfile
+      args:
+        DJANGO_APP_PATH: "./django_app"
+        VITE_APP_PATH: "./django_app"
+    tty: true
+    ports:
+      - '${DEFAULT_DEV_SERVER_PORT}:${DEFAULT_DEV_SERVER_PORT}'
+    volumes:
+      - './django_app/vite.config.js:/app/vite.config.js'
+      - './django_app/tailwind.config.js:/app/tailwind.config.js'
+      - './django_app/demo:/app/demo'
+    env_file:
+      - "./.env"
+
+  vite_app_3:
+    build:
+      context: .
+      dockerfile: ../../docker/vite.Dockerfile
+      args:
+        DJANGO_APP_PATH: "./django_app"
+        VITE_APP_PATH: "./vite_app_3"
+    tty: true
+    ports:
+      - '${APP3_DEV_SERVER_PORT}:${APP3_DEV_SERVER_PORT}'
+    volumes:
+      - './vite_app_3/vite.config.js:/app/vite.config.js'
+      - './vite_app_3/tailwind.config.js:/app/tailwind.config.js'
+    env_file:
+      - "./.env"
