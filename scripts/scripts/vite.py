@@ -1,15 +1,3 @@
-"""
-Exports poetry project.toml dependencies to a requirements.txt file.
-That requirements.txt file will then be used to install python dependencies within
-the django docker container.
-
-To build "deploy/build/requirements/production.txt":
-    python build_requirements.py
-
-To build "deply/build/requirements/dev.txt":
-    python build_requirements.py --dev
-"""
-
 import argparse
 import subprocess
 from pathlib import Path

@@ -1,5 +1,5 @@
 {
-  "name": "django-vite-multi-app-demo",
+  "name": "django-vite",
   "version": "0.1.0",
   "scripts": {
     "dev": "cross-env TAILWIND_MODE=watch vite -d",

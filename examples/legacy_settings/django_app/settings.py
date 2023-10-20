@@ -11,7 +11,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", default=False, cast=bool) 
 
-ROOT_URLCONF = "demo.urls"
+ROOT_URLCONF = "django_app.urls"
 
 TEMPLATES = [
     {
@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django_vite",
-    "demo",
+    "django_app",
 ]
 
 MIDDLEWARE = [
