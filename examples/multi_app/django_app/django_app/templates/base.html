@@ -1,0 +1,21 @@
+{% load django_vite %}
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+    <head>
+        <title>django-vite :: multi-app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔆</text></svg>">
+        {% vite_hmr_client %}
+        {% vite_hmr_client app="vite_app_1" %}
+        {% vite_asset 'css/main.css.js' %}
+    </head>
+
+    <body class="h-min-full mx-auto my-10">
+        {% block content %}
+        {% endblock content %}
+    </body>
+
+</html>
