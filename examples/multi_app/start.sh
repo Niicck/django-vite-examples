@@ -24,7 +24,7 @@ docker compose \
   run --rm django \
   python manage.py collectstatic -c --noinput
 
-echo "------ Start docker services"
+echo "------ Start django, the default vite dev server, vite_app_1 dev server"
 docker compose \
   -f "$SCRIPT_DIR/docker-compose.yml" \
   up \

@@ -1,5 +1,5 @@
 # django-vite :: legacy-settings
 
-Here's a demo app to show that using legacy django-vite settings will still work.
+This demo runs django-vite using our legacy `DJANGO_VITE_*` settings. This is just to prove that backwards compatibility still works.
 
-See [demo/settings.py](./demo/settings.py)
+See: [django_app/settings.py](./django_app/settings.py)

@@ -1,5 +1,5 @@
-# django-vite :: legacy-settings
+# django-vite :: new-settings
 
-Here's a demo app to show that using legacy django-vite settings will still work.
+This demo shows how to run a single django-vite app using the new `DJANGO_VITE={...}` settings. Everything else is identical to the legacy-settings demo.
 
-See [demo/settings.py](./demo/settings.py)
+See: [django_app/settings.py](./django_app/settings.py)
