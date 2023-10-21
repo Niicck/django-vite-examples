@@ -2,49 +2,58 @@ version: '3.9'
 
 services:
   django:
-    build:
-      context: .
-      dockerfile: ../../docker/django.Dockerfile
-      args:
-        DJANGO_APP_PATH: "./django_app"
+    image: django-vite:django-app
     ports:
       - '${PORT}:${PORT}'
-    links:
-      - vite_default:vite_default
     volumes:
-      - './demo:app/demo'
+      - './django_app/django_app:/app/django_app'
+      - './vite_app_1/dist:/vite_app_1/dist'
+      - './vite_app_2/dist:/vite_app_2/dist'
     env_file:
       - "./.env"
 
   vite_default:
-    build:
-      context: .
-      dockerfile: ../../docker/vite.Dockerfile
-      args:
-        DJANGO_APP_PATH: "./django_app"
-        VITE_APP_PATH: "./django_app"
+    image: django-vite:vite-app
     tty: true
     ports:
       - '${DEFAULT_DEV_SERVER_PORT}:${DEFAULT_DEV_SERVER_PORT}'
     volumes:
       - './django_app/vite.config.js:/app/vite.config.js'
-      - './django_app/tailwind.config.js:/app/tailwind.config.js'
-      - './django_app/demo:/app/demo'
+      - './django_app/django_app:/app/django_app'
+    env_file:
+      - "./.env"
+
+  vite_app_1:
+    image: django-vite:vite-app
+    tty: true
+    ports:
+      - '${APP1_DEV_SERVER_PORT}:${APP1_DEV_SERVER_PORT}'
+    volumes:
+      - './vite_app_1/vite.config.js:/app/vite.config.js'
+      - './vite_app_1/dist:/app/dist'
+      - './vite_app_1/src:/app/src'
+    env_file:
+      - "./.env"
+
+  vite_app_2:
+    image: django-vite:vite-app
+    tty: true
+    ports:
+      - '${APP2_DEV_SERVER_PORT}:${APP2_DEV_SERVER_PORT}'
+    volumes:
+      - './vite_app_2/vite.config.js:/app/vite.config.js'
+      - './vite_app_2/dist:/app/dist'
+      - './vite_app_2/src:/app/src'
     env_file:
       - "./.env"
 
   vite_app_3:
-    build:
-      context: .
-      dockerfile: ../../docker/vite.Dockerfile
-      args:
-        DJANGO_APP_PATH: "./django_app"
-        VITE_APP_PATH: "./vite_app_3"
+    image: django-vite:vite-app
     tty: true
     ports:
       - '${APP3_DEV_SERVER_PORT}:${APP3_DEV_SERVER_PORT}'
     volumes:
       - './vite_app_3/vite.config.js:/app/vite.config.js'
-      - './vite_app_3/tailwind.config.js:/app/tailwind.config.js'
+      - './vite_app_3/src:/app/src'
     env_file:
       - "./.env"

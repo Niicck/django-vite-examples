@@ -15,8 +15,8 @@ const postcssConfig = {
 export default defineConfig((mode) => {
   const env = loadEnv(mode, '..', '');
 
-  const INPUT_DIR = 'demo/vite_assets';
-  const OUTPUT_DIR = join('demo/vite_assets_dist', env.DEFAULT_STATIC_URL_PREFIX);
+  const INPUT_DIR = './django_app/vite_assets';
+  const OUTPUT_DIR = join('./django_app/vite_assets_dist', env.DEFAULT_STATIC_URL_PREFIX);
 
   return {
     plugins: [vue()],
@@ -33,7 +33,7 @@ export default defineConfig((mode) => {
     },
     server: {
       host: env.DEFAULT_DEV_SERVER_HOST,
-      port: env.DEFAULT_VITE_DEV_SERVER_PORT,
+      port: env.DEFAULT_DEV_SERVER_PORT,
     },
     build: {
       manifest: true,
