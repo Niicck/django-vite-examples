@@ -42,7 +42,7 @@ export default defineConfig((mode) => {
       outDir: resolve(OUTPUT_DIR),
       rollupOptions: {
         input: {
-          demoBlock2: resolve(INPUT_DIR, '/js/apps/demoBlock2.js'),
+          demoBlock2: join(INPUT_DIR, '/js/apps/demoBlock2.js'),
         },
         output: {
           chunkFileNames: undefined,

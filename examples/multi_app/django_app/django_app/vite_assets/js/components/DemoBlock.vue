@@ -15,3 +15,8 @@
         </div>
     </div>
 </template>
+<style scoped>
+    code {
+       @apply bg-gray-100; 
+    }
+</style>

@@ -9,6 +9,7 @@ services:
       - './django_app/django_app:/app/django_app'
       - './vite_app_1/dist:/vite_app_1/dist'
       - './vite_app_2/dist:/vite_app_2/dist'
+      - './vite_app_3/dist:/vite_app_3/dist'
     env_file:
       - "./.env"
 
@@ -30,7 +31,6 @@ services:
       - '${APP1_DEV_SERVER_PORT}:${APP1_DEV_SERVER_PORT}'
     volumes:
       - './vite_app_1/vite.config.js:/app/vite.config.js'
-      - './vite_app_1/dist:/app/dist'
       - './vite_app_1/src:/app/src'
     env_file:
       - "./.env"
@@ -42,8 +42,8 @@ services:
       - '${APP2_DEV_SERVER_PORT}:${APP2_DEV_SERVER_PORT}'
     volumes:
       - './vite_app_2/vite.config.js:/app/vite.config.js'
-      - './vite_app_2/dist:/app/dist'
       - './vite_app_2/src:/app/src'
+      - './vite_app_2/dist:/app/dist'
     env_file:
       - "./.env"
 
@@ -55,5 +55,6 @@ services:
     volumes:
       - './vite_app_3/vite.config.js:/app/vite.config.js'
       - './vite_app_3/src:/app/src'
+      - './vite_app_3/dist:/app/dist'
     env_file:
       - "./.env"

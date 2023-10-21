@@ -32,17 +32,17 @@ export default defineConfig((mode) => {
       postcss: postcssConfig,
     },
     server: {
-      host: "0.0.0.0",
+      host: env.DEV_SERVER_HOST,
       port: env.APP3_DEV_SERVER_PORT,
     },
     build: {
       manifest: true,
       emptyOutDir: true,
       target: 'es2015',
-      outDir: OUTPUT_DIR,
+      outDir: resolve(OUTPUT_DIR),
       rollupOptions: {
         input: {
-          demoBlock3: resolve(INPUT_DIR, '/js/apps/demoBlock3.js'),
+          demoBlock3: join(INPUT_DIR, '/js/apps/demoBlock3.js'),
         },
         output: {
           chunkFileNames: undefined,

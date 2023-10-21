@@ -56,7 +56,7 @@ DJANGO_VITE = {
         "dev_server_port": config("DEFAULT_DEV_SERVER_PORT"),
     },
     "vite_app_1": {
-        "dev_mode": False,
+        "dev_mode": True,
         "static_url_prefix": config("APP1_STATIC_URL_PREFIX"),
         "dev_server_port": config("APP1_DEV_SERVER_PORT"),
     },
@@ -66,7 +66,7 @@ DJANGO_VITE = {
         "dev_server_port": config("APP2_DEV_SERVER_PORT"),
     },
     "vite_app_3": {
-        "dev_mode": True,
+        "dev_mode": False,
         "static_url_prefix": config("APP3_STATIC_URL_PREFIX"),
         "dev_server_port": config("APP3_DEV_SERVER_PORT"),
     },
@@ -75,6 +75,6 @@ DJANGO_VITE = {
 # Add the build.outDir from vite.config.js to STATICFILES_DIRS
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [
-    PROJECT_DIR.parent / "vite_app_1" / "dist",
     PROJECT_DIR.parent / "vite_app_2" / "dist",
+    PROJECT_DIR.parent / "vite_app_3" / "dist",
 ]
