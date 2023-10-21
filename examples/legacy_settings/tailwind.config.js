@@ -1,0 +1,1 @@
+../../docker/vite/tailwind.config.js
