@@ -38,14 +38,10 @@ export default defineConfig((mode) => {
     build: {
       manifest: true,
       emptyOutDir: true,
-      target: 'es2015',
       outDir: resolve(OUTPUT_DIR),
       rollupOptions: {
         input: {
           demoBlock1: join(INPUT_DIR, '/js/apps/demoBlock1.js'),
-        },
-        output: {
-          chunkFileNames: undefined,
         },
       },
     },

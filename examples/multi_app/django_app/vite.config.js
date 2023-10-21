@@ -38,15 +38,11 @@ export default defineConfig((mode) => {
     build: {
       manifest: true,
       emptyOutDir: true,
-      target: 'es2015',
       outDir: resolve(OUTPUT_DIR),
       rollupOptions: {
         input: {
           home: resolve(INPUT_DIR, '/js/apps/home.js'),
           css: resolve(INPUT_DIR, '/css/main.css.js'),
-        },
-        output: {
-          chunkFileNames: undefined,
         },
       },
     },
