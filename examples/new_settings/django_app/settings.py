@@ -53,7 +53,6 @@ DJANGO_VITE = {
     "default": {
         "dev_mode": config("DJANGO_VITE_DEV_MODE", default=False, cast=bool),
         "dev_server_port": config("DJANGO_VITE_DEV_SERVER_PORT", default="5173"),
-        "dev_server_host": config("DJANGO_VITE_DEV_SERVER_HOST", default="localhost"),
     }
 }
 

@@ -32,7 +32,7 @@ export default defineConfig((mode) => {
       postcss: postcssConfig,
     },
     server: {
-      host: env.DEFAULT_DEV_SERVER_HOST,
+      host: "0.0.0.0",
       port: env.APP3_DEV_SERVER_PORT,
     },
     build: {

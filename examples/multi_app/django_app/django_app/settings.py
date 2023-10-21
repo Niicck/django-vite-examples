@@ -48,30 +48,28 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# new django-vite settings
+# DJANGO_VITE settings
 DJANGO_VITE = {
     "default": {
         "dev_mode": True,
         "static_url_prefix": config("DEFAULT_STATIC_URL_PREFIX"),
-        "dev_server_host": config("DEFAULT_DEV_SERVER_HOST"),
+        # "dev_server_host": "0.0.0.0",
         "dev_server_port": config("DEFAULT_DEV_SERVER_PORT"),
     },
     "vite_app_1": {
         "dev_mode": False,
         "static_url_prefix": config("APP1_STATIC_URL_PREFIX"),
-        "dev_server_host": config("DEFAULT_DEV_SERVER_HOST"),
         "dev_server_port": config("APP1_DEV_SERVER_PORT"),
     },
     "vite_app_2": {
         "dev_mode": False,
         "static_url_prefix": config("APP2_STATIC_URL_PREFIX"),
-        "dev_server_host": config("DEFAULT_DEV_SERVER_HOST"),
         "dev_server_port": config("APP2_DEV_SERVER_PORT"),
     },
     "vite_app_3": {
         "dev_mode": True,
         "static_url_prefix": config("APP3_STATIC_URL_PREFIX"),
-        "dev_server_host": config("DEFAULT_DEV_SERVER_HOST"),
+        # "dev_server_host": "0.0.0.0",
         "dev_server_port": config("APP3_DEV_SERVER_PORT"),
     },
 }
