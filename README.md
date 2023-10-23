@@ -34,6 +34,10 @@ See: [settings.py](./examples/new_settings/django_app/settings.py)
 ### [Multi-App](examples/multi_app/README.md)
 
 ```bash
+make build-multi-app-demo
+```
+
+```bash
 make multi-app-demo
 ```
 

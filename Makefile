@@ -24,6 +24,11 @@ new-settings-demo: .env
 	sh examples/new_settings/start.sh
 
 # Run multi-app demo
+.PHONY: build-multi-app-demo
+build-multi-app-demo: .env
+	sh examples/multi_app/build.sh
+
+# Run multi-app demo
 .PHONY: multi-app-demo
 multi-app-demo: .env
 	sh examples/multi_app/start.sh

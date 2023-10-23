@@ -9,7 +9,7 @@ urlpatterns = [
         name="index",
     ),
     path(
-        "page_2",
+        "2",
         TemplateView.as_view(template_name="page_2.html"),
         name="page_2",
     ),
