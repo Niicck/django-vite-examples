@@ -8,4 +8,9 @@ urlpatterns = [
         TemplateView.as_view(template_name="index.html"),
         name="index",
     ),
+    path(
+        "page_2",
+        TemplateView.as_view(template_name="page_2.html"),
+        name="page_2",
+    ),
 ]

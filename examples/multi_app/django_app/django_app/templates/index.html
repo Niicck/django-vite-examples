@@ -5,7 +5,7 @@
 
 {% block content %}
     {% vite_asset 'js/apps/home.js' %}
-    {% vite_asset 'js/apps/demoBlock1.js' app="vite_app_1" %}
+    {% comment %} {% vite_asset 'js/apps/demoBlock1.js' app="vite_app_1" %} {% endcomment %}
     {% vite_asset 'js/apps/demoBlock2.js' app="vite_app_2" %}
     {% vite_asset 'js/apps/demoBlock3.js' app="vite_app_3" %}
 
@@ -18,13 +18,15 @@
                 django-vite example
             </h2>
         </div>
+
+        {% include "_buttons.html" %}
     
         <div id="home-vue-app">
             <demo-block></demo-block>
         </div>
-        <div id="vue-app-1">
+        {% comment %} <div id="vue-app-1">
             <demo-block-1></demo-block-1>
-        </div>
+        </div> {% endcomment %}
         <div id="vue-app-2">
             <demo-block-2></demo-block-2>
         </div>

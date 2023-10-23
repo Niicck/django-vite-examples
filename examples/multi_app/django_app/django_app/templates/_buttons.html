@@ -1,0 +1,19 @@
+{% url "index" as page_1_url %}
+{% url "page_2" as page_2_url %}
+
+<div class="flex space-x-5">
+    <a 
+        href="{{ page_1_url }}"
+        type="button"
+        class="{% if request.path == page_1_url %} button-selected {% else %} button {% endif %}"
+    >
+        Page 1
+    </a>
+    <a
+        href="{{ page_2_url }}"
+        type="button"
+        class="{% if request.path == page_2_url %} button-selected {% else %} button {% endif %}"
+    >
+        Page 2
+    </a>
+</div>
