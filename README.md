@@ -53,4 +53,4 @@ Noteworthy differences between the multi-app setup and the other demos:
 - [index.html](./examples/multi_app/django_app/django_app/templates/index.html) shows how to load assets from multiple vite apps.
 - [vite_app_1/vite.config.js](./examples/multi_app/vite_app_1/vite.config.js) shows how I'm using `static_url_prefix` for directing build output and dev server routing.
 
-\*\*There's 1 bug I've found with this demo: I'm not able to make HMR work on 2 different vite dev servers at the same time -- only one vite app gets changes registered to it in real time. I'll keep investigating.
+\*\*There's 1 bug I've found with this demo: I'm not able to make HMR work on 2 different vite dev servers if they're both trying to update assets on the same page. Only one vite app will get changes registered to it in real time. I'll keep investigating.

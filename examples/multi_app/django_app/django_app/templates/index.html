@@ -24,6 +24,10 @@
         <div id="home-vue-app">
             <demo-block></demo-block>
         </div>
+        {% comment %}
+            Hot reloaded won't work for both "default" and "vite_app_1" if they're both
+            running on the same page.
+        {% endcomment %}
         {% comment %} <div id="vue-app-1">
             <demo-block-1></demo-block-1>
         </div> {% endcomment %}
