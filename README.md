@@ -16,6 +16,7 @@ make build
 ```bash
 make legacy-settings-demo
 ```
+http://localhost:8001/
 
 This demo runs django-vite using our legacy `DJANGO_VITE_*` settings. This is just to prove that backwards compatibility still works.
 
@@ -26,6 +27,7 @@ See: [settings.py](./examples/legacy_settings/django_app/settings.py)
 ```bash
 make new-settings-demo
 ```
+http://localhost:8002/
 
 This demo shows how to run a single django-vite app using the new `DJANGO_VITE={...}` settings. Everything else in the setup is identical to the legacy-settings demo.
 
@@ -40,6 +42,7 @@ make build-multi-app-demo
 ```bash
 make multi-app-demo
 ```
+http://localhost:8003/
 
 This demo shows how to use django-vite to load assets from 4 different vite apps.
 
