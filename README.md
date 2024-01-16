@@ -1,9 +1,9 @@
 # django-vite examples
-Examples of how to use the new multi-app version of django-vite.
+Example Django apps showcasing how to use django-vite v3.
 
 ## Install
 
-All of the example demos are on docker. Build the images with:
+All of the example demos run on Docker. Build the images with:
 
 ```bash
 make build
@@ -11,40 +11,53 @@ make build
 
 ## Examples
 
-### [Legacy Settings](examples/legacy_settings/README.md)
+### 1. Legacy Settings
 
-```bash
-make legacy-settings-demo
-```
-http://localhost:8001/
+This demo demonstrates backwards compatibility with legacy `DJANGO_VITE_*` settings from django-vite v2 and earlier versions.
 
-This demo runs django-vite using our legacy `DJANGO_VITE_*` settings. This is just to prove that backwards compatibility still works.
+|![Legacy Settings](/img/legacy-settings.png)|
+|-|
 
-See: [settings.py](./examples/legacy_settings/django_app/settings.py)
+- **Documentation:** [README.md](examples/legacy_settings/README.md)
+- **Run the Demo:**
+  ```bash
+  make legacy-settings-demo
+  ```
+- **Access the Demo:** http://localhost:8001/
+- **Quick Glance:** [settings.py](./examples/legacy_settings/django_app/settings.py)
 
-### [New Settings](examples/new_settings/README.md)
 
-```bash
-make new-settings-demo
-```
-http://localhost:8002/
+### 2. New Settings (v3)
 
-This demo shows how to run a single django-vite app using the new `DJANGO_VITE={...}` settings. Everything else in the setup is identical to the legacy-settings demo.
+This demo shows how to run a single django-vite app using the new `DJANGO_VITE={...}` settings from django-vite v3 and higher. Everything else in the setup is identical to the legacy-settings demo.
 
-See: [settings.py](./examples/new_settings/django_app/settings.py)
+|![Legacy Settings](/img/new-settings.png)|
+|-|
 
-### [Multi-App](examples/multi_app/README.md)
+- **Documentation:** [README.md](examples/new_settings/README.md)
+- **Run the Demo:**
+  ```bash
+  make new-settings-demo
+  ```
+- **Access the Demo:** http://localhost:8002/
+- **Quick Glance:** [settings.py](./examples/new_settings/django_app/settings.py)
 
-```bash
-make build-multi-app-demo
-```
+### 3. Multi-App
 
-```bash
-make multi-app-demo
-```
-http://localhost:8003/
+This demo shows django-vite loading assets from 4 different vite apps.
 
-This demo shows how to use django-vite to load assets from 4 different vite apps.
+|![Multi-App](/img/multi-app.png)|
+|-|
+
+- **Documentation:** [README.md](examples/multi_app/README.md)
+- **Run the Demo:**
+  ```bash
+  make build-multi-app-demo
+  make multi-app-demo
+  ```
+- **Access the Demo:** http://localhost:8003/
+
+This demo loads assets from 4 different vite apps:
 
 - The **default** app is running on a vite dev server with `dev_mode=True`.
 - **vite_app_1** app is also running on a vite dev server with `dev_mode=True`.
@@ -56,4 +69,8 @@ Noteworthy differences between the multi-app setup and the other demos:
 - [index.html](./examples/multi_app/django_app/django_app/templates/index.html) shows how to load assets from multiple vite apps.
 - [vite_app_1/vite.config.js](./examples/multi_app/vite_app_1/vite.config.js) shows how I'm using `static_url_prefix` for directing build output and dev server routing.
 
-\*\*There's 1 bug I've found with this demo: I'm not able to make HMR work on 2 different vite dev servers if they're both trying to update assets on the same page. Only one vite app will get changes registered to it in real time. I'll keep investigating.
+#### Bug Report
+
+There's 1 bug I've found with this demo: I'm not able to make HMR work on 2 different vite dev servers if they're both trying to update assets on the same page. Only one vite app will get changes registered to it in real time.
+
+Realistically, a developer is unlikely to be working on more than 1 vite app with dev_mode=True on the same page. But it may still be worth investigating.
