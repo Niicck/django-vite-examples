@@ -41,7 +41,7 @@ export default defineConfig((mode) => {
       outDir: resolve(OUTPUT_DIR),
       rollupOptions: {
         input: {
-          home: join(INPUT_DIR, '/js/apps/home.js'),
+          demoBlock: join(INPUT_DIR, '/js/apps/demoBlock.js'),
           css: join(INPUT_DIR, '/css/main.css.js'),
         },
       },
